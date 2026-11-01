@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sevs – Web and systems developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fontshare.com[]=chillax@400,700&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css">
+<link rel="icon" href="image/logo.svg" type="image/svg+xml">
+</head>
+<script>
+document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    const target = document.querySelector(link.getAttribute('href'));
+    if (!target) return;
+    e.preventDefault();
+    const offset = 96;
+    const start = window.scrollY;
+    const end = target.getBoundingClientRect().top + start - offset;
+    const duration = 1000; // ms, raise for slower
+    const t0 = performance.now();
+    const ease = t => t < .5 ? 2*t*t : 1 - Math.pow(-2*t + 2, 2) / 2;
+    const step = now => {
+      const p = Math.min((now - t0) / duration, 1);
+      window.scrollTo(0, start + (end - start) * ease(p));
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  });
+});
+</script>
+<body>
+
+<nav aria-label="Main">
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#links">Links</a></li>
+    <li><a href="#contact">Contact me</a></li>
+  </ul>
+</nav>
+<!--fuckass body sction-->
+<main>
+  <section id="home" class="hero">
+    <h1>Hi, I’m <span class="name">Sevs</span></h1>
+    <p>A web and systems developer with a passion for design. This is my portfolio, feel free to look around.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul class="skills">
+      <li>Python</li>
+      <li>JavaScript</li>
+      <li>Project Management</li>
+      <li>Web design <small>front-end and back-end</small></li>
+    </ul>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <a class="project" href="https://github.com/DJ-Sevs/Arduino-door-lock-system"><h3>Arduino door-lock system</h3><p>Small project using Arduino with web-based interface and mobile application. This is our final project for our 2nd year exam project. Feel free to improve it!</p></a>
+      <a class="project" href="https://github.com/DJ-Sevs/Online-Bank-Website-Project"><h3>Online Bank Website Project</h3><p>A responsive website for a fictional online bank, featuring account management and transaction history.</p></a>
+      <a class="project" href="https://github.com/DJ-Sevs/Kitchen-ticketing-system"><h3>Kitchen ticketing system</h3><p>A simple ticketing system for a restaurant kitchen, allowing orders to be submitted and tracked.</p></a>
+    </div>
+  </section>
+
+  <section id="links">
+    <h2>Links</h2>
+    <ul class="links">
+      <li><a href="https://github.com/DJ-Sevs">GitHub <span>Code and projects</span></a></li>
+    </ul>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact me</h2>
+    <p>Have a project in mind or want to say hello? Send me an email.</p>
+    <a class="button" href="mailto:djsevilla7473@gmail.com">Email Sevs</a>
+  </section>
+</main>
+
+<footer>© 2026 Sevs</footer>
+
+</body>
+</html>
