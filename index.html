@@ -9,27 +9,7 @@
 <link href="https://fontshare.com[]=chillax@400,700&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css">
 <link rel="icon" href="image/logo.svg" type="image/svg+xml">
 </head>
-<script>
-document.querySelectorAll('nav a[href^="#"]').forEach(link => {
-  link.addEventListener('click', e => {
-    const target = document.querySelector(link.getAttribute('href'));
-    if (!target) return;
-    e.preventDefault();
-    const offset = 96;
-    const start = window.scrollY;
-    const end = target.getBoundingClientRect().top + start - offset;
-    const duration = 1000; // ms, raise for slower
-    const t0 = performance.now();
-    const ease = t => t < .5 ? 2*t*t : 1 - Math.pow(-2*t + 2, 2) / 2;
-    const step = now => {
-      const p = Math.min((now - t0) / duration, 1);
-      window.scrollTo(0, start + (end - start) * ease(p));
-      if (p < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  });
-});
-</script>
+
 <body>
 
 <nav aria-label="Main">
@@ -51,7 +31,10 @@ document.querySelectorAll('nav a[href^="#"]').forEach(link => {
     <ul class="skills">
       <li>Python</li>
       <li>JavaScript</li>
+      <li>Java</li>
+      <li>Express.js</li>
       <li>Project Management</li>
+      <li>MySQL</li>
       <li>Web design <small>front-end and back-end</small></li>
     </ul>
   </section>
